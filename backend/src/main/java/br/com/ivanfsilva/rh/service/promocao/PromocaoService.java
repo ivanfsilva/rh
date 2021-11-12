@@ -12,12 +12,12 @@ public class PromocaoService {
             throw new ValidacaoException("Gerentes não podem ser promovidos! ");
         }
 
-        if ( metaBatida  ) {
-            Cargo novoCargo = cargoAtual.getProximoCargo();
-            funcionario.promover( novoCargo );
-        } else {
+        if ( !metaBatida  ) {
             throw new ValidacaoException("Funcionário não bateu a meta!");
         }
+
+        Cargo novoCargo = cargoAtual.getProximoCargo();
+        funcionario.promover( novoCargo );
     }
 
 }
